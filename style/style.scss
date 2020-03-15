@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css?family=Indie+Flower&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Indie Flower", cursive;
+  font-size: x-large;
+  color: #5a52d7;
+}
+@mixin centerizde($pad, $dir: "row") {
+  display: flex;
+  flex-direction: $dir;
+  align-items: center;
+  justify-content: center;
+  padding: $pad;
+}
+@mixin neumorphism($radius, $bgClr) {
+  border-radius: $radius;
+  background: $bgClr;
+  box-shadow: -20px 20px 39px #b3bdbe, 20px -20px 39px #f3ffff;
+  border: none;
+  outline: none;
+}
+body {
+  background-color: #d3dedf;
+  @include centerizde(30px);
+  form {
+    position: absolute;
+    top: 20%;
+    @include centerizde(30px, column);
+    @include neumorphism(19px, #d3dedf);
+
+    label,
+    button {
+      margin: 30px;
+      padding: 15px;
+      @include neumorphism(6px, #d3dedf);
+    }
+    label {
+      &:hover {
+        box-shadow: inset -5px 5px 11px #b3bdbe, inset 5px -5px 11px #f3ffff;
+      }
+    }
+    button {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      &:hover {
+        box-shadow: inset -5px 5px 11px #b3bdbe, inset 5px -5px 11px #f3ffff;
+      }
+    }
+    input {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+    }
+  }
+}
